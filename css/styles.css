@@ -476,7 +476,7 @@ img {
 }
 
 .socil-container {
-  margin-right: 80px;
+  margin-right: auto;
 }
 
 .footer-social-text {
@@ -529,6 +529,13 @@ img {
   line-height: 2;
   letter-spacing: 0.04em;
   color: #ffffff;
+  background-color: transparent;
+  outline: transparent;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-input:focus {
+  border-color: #4d5ae5;
 }
 
 .footer-input::placeholder {
@@ -576,7 +583,7 @@ img {
   pointer-events: none;
 }
 
-.is-open {
+.backdrop.is-open {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -618,6 +625,10 @@ img {
 .modal-close:hover {
   background-color: #404bbf;
   border: none;
+}
+
+.modal-close:focus .modal-icon-close,
+.modal-close:hover .modal-icon-close {
   fill: #ffffff;
 }
 
@@ -698,6 +709,11 @@ img {
   padding: 8px 16px;
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   resize: none;
+  display: block;
+}
+
+.modal-text::placeholder {
+  color: rgba(46, 47, 66, 0.4);
 }
 
 .modal-text:focus {
@@ -708,10 +724,16 @@ img {
   margin-bottom: 24px;
 }
 
-.modal-checkbox:checked + .modal-label-checkbox span {
+.modal-checkbox:checked + .modal-label-checkbox .checkbox-vector-container {
   background-color: #404bbf;
   border: none;
   fill: #f4f4fd;
+}
+
+.modal-checkbox:focus-visible
+  + .modal-label-checkbox
+  .checkbox-vector-container {
+  outline: 1px solid #4d5ae5;
 }
 
 .modal-label-checkbox {
@@ -741,7 +763,6 @@ img {
   text-decoration: underline;
   text-decoration-skip-ink: none;
   color: #4d5ae5;
-  margin-left: 4px;
 }
 
 .modal-btn {
@@ -762,4 +783,9 @@ img {
   display: block;
   min-width: 169px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-btn:hover,
+.modal-btn:focus {
+  background-color: #404bbf;
 }
